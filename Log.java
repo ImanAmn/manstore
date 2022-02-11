@@ -9,7 +9,6 @@ public class Log {
 	public FileOutputStream fileOutputStream;
 
 	public void write(Object txt) {		
-	//	file.getParentFile().mkdirs();
 		try {
 			if(!file.exists())
 				file.createNewFile();

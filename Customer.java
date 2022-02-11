@@ -1,11 +1,7 @@
 import java.util.*;
-// TODO: package to import other classes with out make theme like line 5
 
 public class Customer extends User {
 	Main main = new Main();
-	// Main mm = new Main();
-	// TODO: there is no diff to use mm or main
-	// DataBase dataBase = new DataBase();
 
 	public List<Item> cart = new LinkedList<>();
 

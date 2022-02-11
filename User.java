@@ -2,7 +2,7 @@ import java.util.*;
 
 public class User {
 	public String username;
-	public String pass; // TODO: private pass...
+	public String pass;
 	public final String birthdate;
 	public String phoneNumber;
 	public int id;

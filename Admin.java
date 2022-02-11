@@ -96,14 +96,6 @@ public class Admin extends User {
 
 		else 
 			System.out.println("!!! What do you want here?! :/ !!!");
-
-		// TODO: learn about وراثت in java, seller x = (seller) user
-		/*if (Object == Seller)
-			System.out.println("SSSSSSSS\n");
-		else if (Object == Customer)
-			System.out.println("CCCCCCCC\n");
-		else
-			System.out.println(" !!!! \n");*/
 		adminPanel();
 	}
 
@@ -122,7 +114,6 @@ public class Admin extends User {
 			main.log.removeItem(this, item);
 			System.out.println("+++ item with id " + item.id + " was removed successfully +++\n");
 		}
-		// TODO: lst < check to dont return, Panel... TODO
 	}
 
 	void catLog() {

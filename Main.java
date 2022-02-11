@@ -3,24 +3,14 @@ import java.text.SimpleDateFormat;
 import java.io.*;
 
 public class Main {
-	
-	// TODO packages, files
-	// TODO cowsay:) TODO
-	
-
 	static DataBase dataBase = new DataBase();
 	static boolean mark = true;
 	static boolean acceptedUser = false;
 	static Scanner sc = new Scanner(System.in);
-	// file
 	static Log log = new Log();
 
 
 	public static void main(String[] args) {
-			
-		//java.util.Date date = new java.util.Date();    
-		//System.out.println(date);
-		
 		Date date = new Date();
 		SimpleDateFormat formatter = new SimpleDateFormat("YY/dd/MM  :::  HH:mm:ss");
 
@@ -39,10 +29,6 @@ public class Main {
 		dataBase.addAdmin(admin);
 		dataBase.addItem(new Item("asb", 100, "animal", 5, 6451));
 		//
-
-		//log.write("Iman Amani");
-		//log.write("Haji chetori??");
-
 
 		while (mark) {
 			System.out.println("here’s a list of available commands:");
@@ -89,8 +75,6 @@ public class Main {
 		String birthdate = sc.nextLine();
 		System.out.println("Enter your phone number: ");
 		String phoneNumber = sc.nextLine();
-		// int balance = 0;
-		// TODO: valid username checker TODO
 		if (dataBase.isValidUsername(username)) {
 			Customer customer = new Customer(username, pass, birthdate, phoneNumber);
 			dataBase.addCustomer(customer);
@@ -108,8 +92,6 @@ public class Main {
 		String birthdate = sc.nextLine();
 		System.out.println("Enter your phone number: ");
 		String phoneNumber = sc.nextLine();
-		// int balance = 0;
-		// TODO: valid username checker TODO
 		if (dataBase.isValidUsername(username)) {
 			Seller seller = new Seller(username, pass, birthdate, phoneNumber);
 			dataBase.addSeller(seller);
@@ -131,10 +113,9 @@ public class Main {
 			return;
 		String username = lst[2];
 		String pass = lst[3];
-		searchAdmin(username, pass); // TODO   TODO
+		searchAdmin(username, pass);
 		searchCustomer(username, pass);
 		searchSeller(username, pass);
-		// Here, the user was not accepted...
 		if (!acceptedUser)
 			System.out.println(" --- Oh, failed :( --- \n");
 		acceptedUser = false;
@@ -144,8 +125,6 @@ public class Main {
 	public static void searchCustomer(String username, String pass) {
 		Customer customer = dataBase.findCustomer(username, pass);
 		if (customer == null) {
-			// TODO: write a meaasge...  TODO
-			// I thinks it should be after 3 searchs.... Yes? 
 			return;
 		}
 		acceptedUser = true;

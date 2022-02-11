@@ -5,7 +5,7 @@ public class Seller extends User {
 
 	static int previousId = 0;
 
-	public boolean is_valid = false; // TODO, get_is_valid and make it private
+	public boolean is_valid = false; 
 
 	public Seller(String username, String pass, String birthdate, String phoneNumber) {
 		super(username, pass, birthdate, phoneNumber);
@@ -42,7 +42,7 @@ public class Seller extends User {
 	public void sellerInfo() {
 		System.out.println("=== INFO ===");
 		System.out.println("* Username: " + username + "\n" + "* Pass: " + pass + "\n" + "* Birth Date: " + birthdate + "\n" + "* Phone number: " + phoneNumber);
-		System.out.println("* Validate: " + is_valid + "\n"); // TODO: use RED and GREEN color to show is_valid
+		System.out.println("* Validate: " + is_valid + "\n"); 
 		sellerPanel();
 	}
 
@@ -80,7 +80,7 @@ public class Seller extends User {
 			System.out.println(" --- Item was not found --- \n");
 		}
 		else if (item.sellerId == id) {
-			item.numbers = 0; // TODO: check for to remove or not_available item...?
+			item.numbers = 0; 
 			main.log.removeItem(this, item);
 			System.out.println(" +++ item was removed successfully +++ \n");
 		}
