@@ -1,22 +1,14 @@
 import java.util.*;
 
-public class Seller {
+public class Seller extends User {
 	Main main = new Main();
 
 	static int previousId = 0;
-	public int id;
 
-	public String username;
-	public String pass;
-	public final String birthdate;
-	public String phoneNumber;
 	public boolean is_valid = false; // TODO, get_is_valid and make it private
 
 	public Seller(String username, String pass, String birthdate, String phoneNumber) {
-		this.username = username;
-		this.pass = pass;
-		this.birthdate = birthdate;
-		this.phoneNumber = phoneNumber;
+		super(username, pass, birthdate, phoneNumber);
 		id = ++previousId;
 		id *= 10;
 		id += 1; // All sellers id has 1 at the end of number
@@ -36,18 +28,14 @@ public class Seller {
 			case 1:
 				sellerInfo();
 				break;
-
 			case 2:
 				addItem();
 				break;
-
 			case 3:
 				removeItem();
 				break;
-
 			case 4:
 				logOut();
-
 		}
 	}
 
@@ -70,7 +58,7 @@ public class Seller {
 		if (is_valid) {
 			Item item = new Item(itemName, price, tag, 1, id);
 			main.dataBase.addItem(item);
-			// main.log.addItem(this, item); TODO
+			main.log.addItem(this, item);
 			System.out.println("+++ item with id " + item.id + " was added successfully +++\n");
 		}
 		else {
@@ -93,7 +81,7 @@ public class Seller {
 		}
 		else if (item.sellerId == id) {
 			item.numbers = 0; // TODO: check for to remove or not_available item...?
-			// main.log.removeItem(this, item); TODO
+			main.log.removeItem(this, item);
 			System.out.println(" +++ item was removed successfully +++ \n");
 		}
 		else 

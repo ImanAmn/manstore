@@ -40,8 +40,8 @@ public class Main {
 		dataBase.addItem(new Item("asb", 100, "animal", 5, 6451));
 		//
 
-		log.write("Iman Amani");
-		log.write("Haji chetori?");
+		//log.write("Iman Amani");
+		//log.write("Haji chetori??");
 
 
 		while (mark) {
@@ -56,11 +56,9 @@ public class Main {
 				case 1:
 					signUp();
 					break;
-
 				case 2:
 					logIn();
 					break;
-
 				case 3:
 					exit();
 			}
@@ -77,8 +75,8 @@ public class Main {
 		if (info.equals("back")) {
 			return;
 		}
-		else if (lst[2].equals("costumer")) {
-			getDataCostumer(lst[3], lst[4]);
+		else if (lst[2].equals("customer")) {
+			getDataCustomer(lst[3], lst[4]);
 		}
 		else if (lst[2].equals("seller")) {
 			getDataSeller(lst[3], lst[4]);
@@ -86,7 +84,7 @@ public class Main {
 
 	}
 
-	public static void getDataCostumer(String username, String pass) {
+	public static void getDataCustomer(String username, String pass) {
 		System.out.println("Enter your birth date: ");
 		String birthdate = sc.nextLine();
 		System.out.println("Enter your phone number: ");
@@ -94,10 +92,10 @@ public class Main {
 		// int balance = 0;
 		// TODO: valid username checker TODO
 		if (dataBase.isValidUsername(username)) {
-			Costumer costumer = new Costumer(username, pass, birthdate, phoneNumber);
-			dataBase.addCostumer(costumer);
-			System.out.println(" === Costumer added! === \n");
-			// log.addUser(costumer); TODO
+			Customer customer = new Customer(username, pass, birthdate, phoneNumber);
+			dataBase.addCustomer(customer);
+			System.out.println(" === Customer added! === \n");
+			log.addUser(customer);
 		}
 		else {
 			System.out.println(" !!! Sorry, this username is already taken !!!\n"); 
@@ -116,7 +114,7 @@ public class Main {
 			Seller seller = new Seller(username, pass, birthdate, phoneNumber);
 			dataBase.addSeller(seller);
 			System.out.println(" === Seller added! === \n");
-			// log.addUser(seller); TODO
+			log.addUser(seller);
 		}
 		else {
 			System.out.println(" !!! Sorry, this username is already taken !!! \n");
@@ -134,7 +132,7 @@ public class Main {
 		String username = lst[2];
 		String pass = lst[3];
 		searchAdmin(username, pass); // TODO   TODO
-		searchCostumer(username, pass);
+		searchCustomer(username, pass);
 		searchSeller(username, pass);
 		// Here, the user was not accepted...
 		if (!acceptedUser)
@@ -143,15 +141,15 @@ public class Main {
 
 	}
 
-	public static void searchCostumer(String username, String pass) {
-		Costumer costumer = dataBase.findCostumer(username, pass);
-		if (costumer == null) {
+	public static void searchCustomer(String username, String pass) {
+		Customer customer = dataBase.findCustomer(username, pass);
+		if (customer == null) {
 			// TODO: write a meaasge...  TODO
 			// I thinks it should be after 3 searchs.... Yes? 
 			return;
 		}
 		acceptedUser = true;
-		costumer.costumerPanel();
+		customer.customerPanel();
 	}
 
 	public static void searchSeller(String username, String pass) {

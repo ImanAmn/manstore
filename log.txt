@@ -1,5 +1,5 @@
 ============= MANSTORE LOGS ================
-Iman Amani
-Haji chetori?
-Iman Amani
-Haji chetori?
+** ADD USER **  username: jadi || ID: 11 || phoneNumber: 915 || birthdate: 57
+** ADD USER **  username: iman || ID: 12 || phoneNumber: 993 || birthdate: 81
+** APROVE USER **  username: jadi || ID: 11
+** ADD USER **  username: imaa || ID: 12 || phoneNumber: 915 || birthdate: 81

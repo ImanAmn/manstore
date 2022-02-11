@@ -1,16 +1,12 @@
 import java.util.*;
 
-public class Admin {
+public class Admin extends User {
 	Main main = new Main();
 
 	static int previousId = 0;
-	public String username;
-	public String pass;
-	private int id;
 
 	public Admin(String username, String pass) {
-		this.username = username;
-		this.pass = pass;
+		super(username, pass, null, null);
 		id = ++previousId;
 		id *= 10;
 	}
@@ -21,7 +17,8 @@ public class Admin {
 		System.out.println("2. list of all users");
 		System.out.println("3. remove user");
 		System.out.println("4. remove item");
-		System.out.println("5. log out\n");
+		System.out.println("5. cat log");
+		System.out.println("6. log out\n");
 
 		int operation = Integer.parseInt(main.sc.nextLine());
 
@@ -29,20 +26,19 @@ public class Admin {
 			case 1:
 				listOfUnverifiedUsers();
 				break;
-
 			case 2:
 				listOfAllUsers();
 				break;
-
 			case 3:
 				removeUser();
 				break;
-
 			case 4:
 				removeItem();
 				break;
-
 			case 5:
+				catLog();
+				break;
+			case 6:
 				logOut();
 
 		}
@@ -65,7 +61,7 @@ public class Admin {
 			return;
 		}
 		seller.approve();
-		// main.log.approveUser(seller); TODO 
+		main.log.approveUser(seller); 
 		System.out.println("+++ Approved successfully +++\n");
 	}
 
@@ -87,15 +83,15 @@ public class Admin {
 		if (user instanceof Seller) {
 			Seller seller = (Seller) user;
 			main.dataBase.sellerList.remove(seller);
-		//	main.log.removeUser(seller); TODO
+			main.log.removeUser(seller);
 			System.out.println("+++ user with username " + seller.username + " was removed successfully +++\n");
 		}
 
-		else if (user instanceof Costumer) {
-			Costumer costumer = (Costumer) user;
-			main.dataBase.costumerList.remove(costumer);
-		//	main.log.removeUser(costumer); TODO
-			System.out.println("+++ user with username " + costumer.username + " was removed successfully +++ \n");
+		else if (user instanceof Customer) {
+			Customer customer = (Customer) user;
+			main.dataBase.customerList.remove(customer);
+			main.log.removeUser(customer);
+			System.out.println("+++ user with username " + customer.username + " was removed successfully +++ \n");
 		}
 
 		else 
@@ -104,7 +100,7 @@ public class Admin {
 		// TODO: learn about وراثت in java, seller x = (seller) user
 		/*if (Object == Seller)
 			System.out.println("SSSSSSSS\n");
-		else if (Object == Costumer)
+		else if (Object == Customer)
 			System.out.println("CCCCCCCC\n");
 		else
 			System.out.println(" !!!! \n");*/
@@ -123,10 +119,15 @@ public class Admin {
 			adminPanel();
 		else {
 			item.numbers = 0;
-		//	main.log.removeItem(item); TODO
+			main.log.removeItem(this, item);
 			System.out.println("+++ item with id " + item.id + " was removed successfully +++\n");
 		}
 		// TODO: lst < check to dont return, Panel... TODO
+	}
+
+	void catLog() {
+		main.log.catLog();
+		adminPanel();
 	}
 
 	public void logOut() {

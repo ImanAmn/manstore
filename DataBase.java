@@ -1,13 +1,13 @@
 import java.util.*;
 
 public class DataBase {
-	public List<Costumer> costumerList =  new LinkedList<>();
+	public List<Customer> customerList =  new LinkedList<>();
 	public List<Seller> sellerList =  new LinkedList<>();
 	public List<Item> itemList =  new LinkedList<>();
 	public List<Admin> adminList =  new LinkedList<>();
 
-	public void addCostumer(Costumer costumer) {
-		costumerList.add(costumer);
+	public void addCustomer(Customer customer) {
+		customerList.add(customer);
 	}
 
 	public void addSeller(Seller seller) {
@@ -22,10 +22,10 @@ public class DataBase {
 		adminList.add(admin);
 	}
 
-	public Costumer findCostumer(String username, String pass) {
-		for (Costumer costumer: costumerList)
-			if (costumer.username.equals(username) && costumer.pass.equals(pass))
-				return costumer;
+	public Customer findCustomer(String username, String pass) {
+		for (Customer customer: customerList)
+			if (customer.username.equals(username) && customer.pass.equals(pass))
+				return customer;
 		return null;
 	}	
 
@@ -61,9 +61,9 @@ public class DataBase {
 		for (Seller seller: sellerList)
 			if (seller.username.equals(username))
 				return seller;
-		for (Costumer costumer: costumerList)
-			if (costumer.username.equals(username))
-				return costumer;
+		for (Customer customer: customerList)
+			if (customer.username.equals(username))
+				return customer;
 		return null;
 	}
 
@@ -71,8 +71,8 @@ public class DataBase {
 		for (Seller seller: sellerList)
 			if (seller.username.equals(username))
 				return false;
-		for (Costumer costumer: costumerList)
-			if (costumer.username.equals(username))
+		for (Customer customer: customerList)
+			if (customer.username.equals(username))
 				return false;
 		for (Admin admin: adminList)
 			if (admin.username.equals(username))
@@ -105,9 +105,9 @@ public class DataBase {
 
 	public void showAllUsers() {
 		System.out.println("=== list of all users ===");
-		System.out.println("\\___ Costumer(s)");
-		for (Costumer costumer: costumerList)
-			System.out.println("* Name: " + costumer.username + "\n" + "* ID: " + costumer.id + "\n");
+		System.out.println("\\___ Customer(s)");
+		for (Customer customer: customerList)
+			System.out.println("* Name: " + customer.username + "\n" + "* ID: " + customer.id + "\n");
 		System.out.println("\\___ Seller(s)");
 		for (Seller seller: sellerList)
 			System.out.println("* Name: " + seller.username + "\n" + "* ID: " + seller.id + "\n");
